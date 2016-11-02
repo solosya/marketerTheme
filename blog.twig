@@ -107,11 +107,7 @@
             {% endif %}
         </div>
     </div>
-    {% endif %}    
-    <div style="width:970px; height:250px; background-color:red">
-
-    </div>
-    
+    {% endif %}        
     {% if articles[2] is defined %}
     <div class="row">
         <div class="col-two-thirds">
@@ -124,9 +120,14 @@
         </div>
     </div>
     {% endif %}
+</div>
+
+{{this.render('partials/_cta.twig',{keyword: 'cta_1'}) | raw}}
+    
+<div class="container">    
     {% if articles[4] is defined %}
     <div class="row">
-        {% for i in 4..18 %}
+        {% for i in 4..12 %}
             <div class="col-third">
             {% if articles[i] %}
                 {{this.render('partials/_single-article.twig', {article: articles[i], 'position': (i+1)}) | raw}}
@@ -135,6 +136,23 @@
         {% endfor %}
     </div>
     {% endif %}
+</div>
+
+{{this.render('partials/_cta.twig',{keyword: 'cta_2'}) | raw}}
+    
+<div class="container">    
+    {% if articles[13] is defined %}
+    <div class="row">
+        {% for i in 13..18 %}
+            <div class="col-third">
+            {% if articles[i] %}
+                {{this.render('partials/_single-article.twig', {article: articles[i], 'position': (i+1)}) | raw}}
+            {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
     <div class="row ajaxArticles" data-existing-nonpinned-count="{{articlesArr.existingNonPinnedCount}}"></div>
     <div class="row text-center has-margin-bottom-20">
         {% if articles|length >= limit %}

@@ -1,6 +1,6 @@
 {{ set(this, 'title', 'User Profile') }}
 
-{% set profileImage =_Media.getMediaUrl(userDetails.media, 500, 500, {crop: 'thumb'} )%}
+{% set profileImage =_Media.getMediaUrl(userDetails.media, 500, 500, {crop: 'thumb', gravity: 'face'} )%}
 {{this.registerJs("$('.loginModal').loginModal({});")}}
 
 <!-- Begin Container -->
@@ -13,7 +13,7 @@
                 <!-- Begin User Profile Sidebar -->
 
                 <div id="userprofile-sidebar">
-                    <figure class="user-profile-pic" style="background-image:url({{profileImage}});"></figure>
+                    <figure class="user-profile-pic"{% if profileImage is not empty %}  style="background-image:url({{profileImage}});"{% endif %}></figure>
                     <div class="inner-descr">
                         <h4 class="user-name text-center">{{Html.encode(userDetails.firstname)}} {{Html.encode(userDetails.lastname)}}</h4>
                         {% if _User.isGuest() %}

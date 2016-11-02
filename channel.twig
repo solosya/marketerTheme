@@ -39,7 +39,15 @@
                         {{this.render('partials/_single-article.twig', {article: articles[6], 'position': 7, 'viewType' : 'small'}) | raw}}
                     </div>
                 {% endif %}
-                
+            </div>
+            {% endif %}
+        </div>                
+        
+        {{this.render('partials/_cta.twig',{keyword: 'cta_1'}) | raw}}
+        
+        {% if articles|length > 7 %}
+            <div class="container">
+                <div class="row">
                 <!-- 4th Row -->
                 {% if articles[7] is defined %}
                     <div class="col-two-thirds">
@@ -53,16 +61,33 @@
                 {% endif %}
                 
                 <!-- 5th Row -->
-                {% for i in 9..20 %}
+                {% for i in 9..14 %}
                     {% if articles[i] is defined %}
                         <div class="col-third">
                             {{this.render('partials/_single-article.twig', {article: articles[i], 'position': (i+1)}) | raw}}
                         </div>
                     {% endif %}
                 {% endfor %}
+                </div>
             </div>
         {% endif %}
         
+        {{this.render('partials/_cta.twig',{keyword: 'cta_2'}) | raw}}
+        
+        {% if articles|length > 0 %}
+            <div class="container">
+                <div class="row">
+                {% for i in 15..20 %}
+                    {% if articles[i] is defined %}
+                        <div class="col-third">
+                            {{this.render('partials/_single-article.twig', {article: articles[i], 'position': (i+1)}) | raw}}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    <div class="container">
         <div class="row ajaxArticles" data-existing-nonpinned-count="{{articlesArr.existingNonPinnedCount}}"></div>
         <div class="row text-center has-margin-bottom-20">
             {% if articles|length >= limit %}

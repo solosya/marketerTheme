@@ -61,13 +61,13 @@
         {% endif%}
         <h1 class="article__heading" itemprop="headline">{{article.title}}</h1>
         <div class="article__caption">
-            {% set creatorImage = '' %}
+            {% set creatorImage = ""  %}
             {% if article.createdBy['media'] | length > 0 and article.createdBy['media']['id'] is not empty %}
                  {% set creatorImage = _Media.getMediaUrl(article.createdBy['media'], 100, 100, {crop:'thumb', radius: 'max', gravity:'face'})%}
             {% endif %}
                 <div class="card__caption">
                     <a href="{{_AppHelper.getUserProfileUrl(article.createdBy['username'])}}">
-                        <div class="card__avatar" style="background-image:url('{{creatorImage}}');">
+                        <div class="card__avatar"{% if creatorImage is not empty %} style="background-image:url('{{creatorImage}}');"{% endif %}>
                             <div class="{{userFollowClass}}"></div>
                         </div>
                         <div class="card__author" itemprop="author">By <span itemprop="name">{{article.createdBy['displayName']}}</span></div>

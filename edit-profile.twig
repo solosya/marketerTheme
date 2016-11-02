@@ -15,7 +15,7 @@
                     </div>
                     <div class="profile-upload text-center ">
                         {% set profileImage = _Media.getMediaUrl(user.profileMedia, 120, 120, {radius: 'max', gravity: 'face', 'crop': 'thumb'})%}
-                        <div class="user-pic"><span class="uploadedUser" style="{{ (profileImage is not empty) ? 'background-image: url('~profileImage~')' : ''}}"><i class="fa fa-user {{ (profileImage is not empty) ? 'hide' : ''}}"></i></span></div>
+                        <div class="user-pic"><span class="uploadedUser"{% if profileImage is not empty %} style="background-image:url({{profileImage}});"{% endif %}><i class="fa fa-user {{ (profileImage is not empty) ? 'hide' : ''}}"></i></span></div>
                         <a href="javascript:void(0)"  class="em upload-profile uploadFileBtn" data-imgcls="uploadedUser" data-id="userProfileImage"><i class="fa fa-plus-circle green"></i>add new image</a>
                     </div>
 

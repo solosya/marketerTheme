@@ -35,10 +35,10 @@
     {% set secFont = networkData['styling']['fonts']['secondaryFont'] %}
 
     {% if primaryFont != "" %}
-        <link href='https://fonts.googleapis.com/css?family={{primaryFont | url_encode}}:{{networkData['styling']['fonts']['primaryFontVariants']}}' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family={{primaryFont}}' rel='stylesheet' type='text/css'>
     {% endif %}
     {% if secFont != "" %}
-        <link href='https://fonts.googleapis.com/css?family={{secFont | url_encode}}:{{networkData['styling']['fonts']['secondaryFontVariants']}}' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family={{secFont}}' rel='stylesheet' type='text/css'>
     {% endif %}
     
     <link rel="alternate" type="application/rss+xml" title="{{_Network.getNetworkTitle()}} -  RSS Feeds" href="http://{{networkData.defaultDomain['domain']}}/feed/rss"/>
@@ -46,7 +46,7 @@
   <!--[if lte IE 8]><script type="text/javascript" src="{{networkData.templatePath}}/static/js/ie/ie.js"></script><![endif]-->
     
     {% if _AppHelper.getApplicationEnv() == 'PROD'%}
-        <link rel="stylesheet" href="{{networkData.templatePath}}/static/deploy/output.gz.css?rel=1477241444207" type="text/css" media="all">
+        <link rel="stylesheet" href="{{networkData.templatePath}}/static/deploy/output.gz.css?rel=1477477110478" type="text/css" media="all">
     {% else %}
         <link type="text/css" rel="stylesheet" href="{{networkData.templatePath}}/static/plugins/jquery.fancybox/source/jquery.fancybox.css" />
         <link type="text/css" rel="stylesheet" href="{{networkData.templatePath}}/static/plugins/jquery.noty-2.3.8/demo/animate.css" />
@@ -153,15 +153,13 @@
                     border-color: {{blog.featuredColor}} !important;
                 }
                 .card:not(.full-screen).{{blogClass | lower}} .card__category, .{{articleClass}} .article__header .article__category,
-                .{{blogClass | lower}} .card__category, .{{articleClass}} .article__header .article__category,
+                .{{blogClass | lower}} .card__category,
                 .{{articleClass}}.article--category .article__caption .card__author {
                     color: {{blog.featuredColor}} !important;
                 }
-                .card.{{blogClass | lower}} .card__banner, .{{articleClass}} .article__header .article__category,
-                .{{blogClass | lower}} .card__category, .{{articleClass}} .article__header .article__category,
-                .{{articleClass}}.article--category .article__caption .card__author {
+                /*.card.{{blogClass | lower}} .card__banner, .{{blogClass | lower}} .card__category {
                     color: #ffffff !important;
-                }
+                }*/
                 
                 .{{articleClass}}.article--category .article__category::after, .{{articleClass}}.article--category .article__follow {
                     background-color: {{blog.featuredColor}} !important;

@@ -1,7 +1,5 @@
 {% set popularArticles = _Article.getPopularArticles({ limit: 3, excludeArticleId : articleId }) %}
 {% if popularArticles|length > 0 %}
-{% set placeholder = 'https://placeholdit.imgix.net/~text?txtsize=33&txt=Loading&w=450&h=250' %}
-{% set avatarImg = network.templatePath ~ "/static/images/data/avatar-08.jpg" %}
 <div class="footer">
     <div class="container">
         <h1 class="footer__heading">You might like...</h1>
